@@ -391,6 +391,9 @@ struct cpp_options
      Presumably the usage is protected by the appropriate #ifdef.  */
   unsigned char warn_variadic_macros;
 
+  /* Zero means don't warn about macros that are redefined. TODO: should this exclude builtin? */
+  unsigned char warn_macro_redefined;
+
   /* Nonzero means warn about builtin macros that are redefined or
      explicitly undefined.  */
   unsigned char warn_builtin_macro_redefined;
@@ -1032,6 +1035,7 @@ enum {
   CPP_W_ENDIF_LABELS,
   CPP_W_NUM_SIGN_CHANGE,
   CPP_W_VARIADIC_MACROS,
+  // TODO: Do I need to add in a new warning reason here? Probably not...
   CPP_W_BUILTIN_MACRO_REDEFINED,
   CPP_W_DOLLARS,
   CPP_W_UNDEF,

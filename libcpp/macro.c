@@ -2747,6 +2747,9 @@ warn_of_redefinition (cpp_reader *pfile, cpp_hashnode *node,
   const cpp_macro *macro1;
   unsigned int i;
 
+  if (!CPP_OPTION (pfile, warn_macro_redefined))
+    return false;
+
   /* Some redefinitions need to be warned about regardless.  */
   if (node->flags & NODE_WARN)
     return true;
