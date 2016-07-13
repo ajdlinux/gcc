@@ -2747,9 +2747,6 @@ warn_of_redefinition (cpp_reader *pfile, cpp_hashnode *node,
   const cpp_macro *macro1;
   unsigned int i;
 
-  if (!CPP_OPTION (pfile, warn_macro_redefined))
-    return false;
-
   /* Some redefinitions need to be warned about regardless.  */
   if (node->flags & NODE_WARN)
     return true;
@@ -2760,6 +2757,10 @@ warn_of_redefinition (cpp_reader *pfile, cpp_hashnode *node,
       && (!pfile->cb.user_builtin_macro
 	  || !pfile->cb.user_builtin_macro (pfile, node)))
     return CPP_OPTION (pfile, warn_builtin_macro_redefined);
+
+  /* Suppress warnings for other macros if Wno-macro-redefined */
+  if (!CPP_OPTION (pfile, warn_macro_redefined))
+    return false;
 
   /* Redefinitions of conditional (context-sensitive) macros, on
      the other hand, must be allowed silently.  */
