@@ -16,3 +16,6 @@
 #define X "Y"         // { dg-bogus "-Wbuiltin-macro-redefined" }
                       // { dg-warning "\"X\" redefined" "not-builtin-2" { target *-*-* } 16 }
                       // { dg-message "previous definition" "previous-2" { target *-*-* } 15 }
+
+// what this does:
+// Identical to test #1, except the builtin warning is now an error.

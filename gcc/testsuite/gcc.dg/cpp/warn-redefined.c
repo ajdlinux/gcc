@@ -16,3 +16,8 @@
 #define X "Y"         // { dg-bogus "-Wbuiltin-macro-redefined" }
                       // { dg-warning "\"X\" redefined" "not-builtin-2" { target *-*-* } 16 }
                       // { dg-message "previous definition" "previous-2" { target *-*-* } 15 }
+
+// what this does:
+//  full -Wbuiltin-macro-redefined warning should trigger on FIRST redefinition of __TIME__, but not second
+//  second redefinition only gets a REGULAR redefined warning.
+//  X redefinition should NOT get a builtin-macro-redefined trigger, just regular
