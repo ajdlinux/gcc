@@ -2748,6 +2748,7 @@ warn_of_redefinition (cpp_reader *pfile, cpp_hashnode *node,
   unsigned int i;
 
   /* Some redefinitions need to be warned about regardless.  */
+  // TODO: does clang have an equiv here?
   if (node->flags & NODE_WARN)
     return true;
 
@@ -3248,9 +3249,8 @@ _cpp_create_definition (cpp_reader *pfile, cpp_hashnode *node)
 
       if (warn_of_redefinition (pfile, node, macro))
 	{
-          const int reason = ((node->flags & NODE_BUILTIN)
-			      && !(node->flags & NODE_WARN))
-                             ? CPP_W_BUILTIN_MACRO_REDEFINED : CPP_W_NONE;
+          const int reason = (node->flags & NODE_WARN) ? CPP_W_NONE :
+	    ((node->flags & NODE_BUILTIN) ? CPP_W_BUILTIN_MACRO_REDEFINED : CPP_W_MACRO_REDEFINED);
 
 	  bool warned = 
 	    cpp_pedwarning_with_line (pfile, reason,

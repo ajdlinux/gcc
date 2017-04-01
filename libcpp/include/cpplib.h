@@ -1035,7 +1035,6 @@ enum {
   CPP_W_ENDIF_LABELS,
   CPP_W_NUM_SIGN_CHANGE,
   CPP_W_VARIADIC_MACROS,
-  // TODO: Do I need to add in a new warning reason here? Probably not...
   CPP_W_BUILTIN_MACRO_REDEFINED,
   CPP_W_DOLLARS,
   CPP_W_UNDEF,
@@ -1049,7 +1048,8 @@ enum {
   CPP_W_PEDANTIC,
   CPP_W_C90_C99_COMPAT,
   CPP_W_CXX11_COMPAT,
-  CPP_W_EXPANSION_TO_DEFINED
+  CPP_W_EXPANSION_TO_DEFINED,
+  CPP_W_MACRO_REDEFINED
 };
 
 /* Output a diagnostic of some kind.  */

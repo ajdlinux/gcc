@@ -16,3 +16,7 @@
 #define X "Y"         // { dg-bogus "-Wbuiltin-macro-redefined" }
                       // { dg-error "\"X\" redefined" "not-builtin-2" { target *-*-* } 16 }
                       // { dg-message "previous definition" "previous-2" { target *-*-* } 15 }
+
+// what this does:
+//  same as test #1, but it should ERROR on the X redefinition, not the __TIME__ redefintiion
+// TODO: Update to ensure it matches for a -Wmacro-redefined string!

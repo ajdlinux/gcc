@@ -351,7 +351,7 @@ C ObjC C++ ObjC++ Var(warn_builtin_declaraion_mismatch) Init(1) Warning
 Warn when a built-in function is declared with the wrong signature.
 
 Wmacro-redefined
-C ObjC C++ ObjC++ CPP(warn_macro_redefined) Var(cpp_warn_macro_redefined) Init(1) Warning
+C ObjC C++ ObjC++ CPP(warn_macro_redefined) CppReason(CPP_W_MACRO_REDEFINED) Var(cpp_warn_macro_redefined) Init(1) Warning
 Warn when a preprocessor macro (TODO: Excluding builtin?) is redefined.
 ; TODO SORT THIS PROPERLY
 
